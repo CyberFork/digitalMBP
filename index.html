@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <title>Mac Spatial Twin</title>
+  </head>
+  <body>
+    <main id="app">
+      <section class="scene-shell" aria-label="MacBook 空间数字孪生场景">
+        <canvas id="twin-canvas"></canvas>
+        <div class="vignette" aria-hidden="true"></div>
+        <header class="topbar">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div>
+              <p class="eyebrow">LOCAL SPATIAL TELEMETRY</p>
+              <h1>Mac Spatial Twin</h1>
+            </div>
+          </div>
+          <div class="connection" id="connection-state"><i></i><span>等待本机传感器</span></div>
+        </header>
+
+        <aside class="control-panel glass">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">ONBOARD SENSORS</p>
+              <h2>真实设备姿态</h2>
+            </div>
+            <button id="reset-button" class="icon-button" title="重置场景视角" aria-label="重置场景视角">↺</button>
+          </div>
+
+          <div class="sensor-readout">
+            <div><span>铰链角</span><output id="lid-angle-output">—</output></div>
+            <div><span>俯仰 Pitch</span><output id="pitch-output">—</output></div>
+            <div><span>横滚 Roll</span><output id="roll-output">—</output></div>
+            <div><span>陀螺采样</span><output id="sample-rate-output">—</output></div>
+            <div><span>实时数据包</span><output id="packet-output">—</output></div>
+            <div><span>键盘事件</span><output id="key-output">等待按键</output></div>
+          </div>
+          <div class="panel-divider"></div>
+          <button id="sensor-button" class="sensor-button">连接本机传感器</button>
+          <p class="hint">数据源：AppleSPUHIDDevice · <code>127.0.0.1:8765</code></p>
+        </aside>
+
+        <section class="telemetry glass" aria-label="实时遥测">
+          <div class="telemetry-title"><span class="pulse"></span>实时状态</div>
+          <dl>
+            <div><dt>铰链</dt><dd id="metric-lid">—</dd></div>
+            <div><dt>水平误差</dt><dd id="metric-level">—</dd></div>
+            <div><dt>姿态</dt><dd id="metric-orientation">等待读取</dd></div>
+          </dl>
+        </section>
+
+        <div class="scene-caption"><span class="caption-dot"></span><span>拖动旋转场景 · 滚轮缩放</span></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

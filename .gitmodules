@@ -1,0 +1,3 @@
+[submodule "vendor/apple-silicon-accelerometer"]
+	path = vendor/apple-silicon-accelerometer
+	url = https://github.com/olvvier/apple-silicon-accelerometer.git

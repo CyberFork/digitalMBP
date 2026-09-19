@@ -2,6 +2,12 @@
 
 本地 Three.js 原型：可视化这台 MacBook 的真实铰链角度、整机 pitch / roll / yaw 与状态。
 
+## 实机演示
+
+![Mac Spatial Twin 实机传感器与键盘映射演示](docs/assets/mac-spatial-twin-demo.gif)
+
+演示画面来自真实 MacBook：三维模型同步显示铰链开合、机身姿态与实体键盘事件，不使用模拟传感器数据。
+
 ## 获取项目
 
 ```bash

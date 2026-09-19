@@ -153,14 +153,17 @@ function addKeyboard(machine) {
     let cursor = -totalWidth / 2;
     normalized.forEach(({ code, label, units }) => {
       const width = units * unit;
-      const x = cursor + width / 2;
+      // The default camera observes the keyboard from the MacBook user's
+      // side (-Z), where screen-left maps to world +X. Mirror positions only
+      // (not the meshes) so the ANSI order is correct and legends stay readable.
+      const x = -(cursor + width / 2);
       const z = firstRowZ - rowIndex * rowStep;
 
       if (label === '__ARROW_CLUSTER__') {
         const arrowWidth = unit;
-        const leftX = cursor + arrowWidth / 2;
-        const middleX = cursor + arrowWidth + gap + arrowWidth / 2;
-        const rightX = cursor + 2 * (arrowWidth + gap) + arrowWidth / 2;
+        const leftX = -(cursor + arrowWidth / 2);
+        const middleX = -(cursor + arrowWidth + gap + arrowWidth / 2);
+        const rightX = -(cursor + 2 * (arrowWidth + gap) + arrowWidth / 2);
         const verticalGap = 0.021;
         const halfDepth = (keyDepth - verticalGap) / 2;
         const halfOffset = (halfDepth + verticalGap) / 2;
